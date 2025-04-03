@@ -1,5 +1,6 @@
 import {
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -210,32 +211,125 @@ export default function EducationForm({ form }) {
             )}
           />
 
-          <FormField
-            control={form.control}
-            name="emailRe"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>RE:</FormLabel>
-                <FormControl>
-                  <Input placeholder="Enter subject" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="niNumber_"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>NI Number:</FormLabel>
-                <FormControl>
-                  <Input className="w-1/4" placeholder="Ni Number " {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+          <div className="my-6">
+            <h3 className="text-lg font-medium mb-4">
+              School / College / University Confirmation
+            </h3>
+            <div className="grid grid-cols-2 gap-x-14 gap-y-10">
+              <FormField
+                control={form.control}
+                name="schoolClgFrom"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>From </FormLabel>
+                    <FormControl>
+                      <Input placeholder="12/09/2024" {...field} />
+                    </FormControl>
+                    <FormDescription>
+                      Dates attended school /college / University
+                    </FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="schoolClgFrom"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>To </FormLabel>
+                    <FormControl>
+                      <Input placeholder="Present" {...field} />
+                    </FormControl>
+                    <FormDescription>
+                      Dates attended school /college / University
+                    </FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="attendedAs"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Attended As</FormLabel>
+                    <FormControl>
+                      <Textarea
+                        placeholder="Ms. FATIHA KHATTAK attended UNIVERSITY OF LINCOLN as a Student, from 12/09/2024 till present"
+                        className="min-h-[100px]"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="commentsOrObservations"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Comments Or Observations</FormLabel>
+                    <FormControl>
+                      <Textarea
+                        placeholder="During Fatiha's time at our institution, she consistently demonstrated outstanding conduct, sustained high academic achievement, and actively participated..."
+                        className="min-h-[100px]"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="signedAsName"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Signed As </FormLabel>
+                    <FormControl>
+                      <Input placeholder="CARTER MOON" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="schoolClgDate"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Ending Form Date</FormLabel>
+                    <FormControl>
+                      <Input placeholder="22/01/2025" {...field} />
+                    </FormControl>
+
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="schoolClgPosition"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Position</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Registerar" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>

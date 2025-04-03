@@ -81,6 +81,14 @@ const sampleData = {
   collegeTo: "30-06-2005",
   collegeGrades: "A, B, B",
 
+  schoolClgFrom: "01-09-2001",
+  schoolClgTo: "30-06-2003",
+  attendedAs: "Student",
+  commentsOrObservations: "None",
+  signedAsName: "John Doe",
+  schoolClgDate: "01-09-2001",
+  schoolClgPosition: "Head Boy",
+
   // Email Reference
   emailDate1: "Wednesday, 22/01/2025 15:29",
   emailReply1:
@@ -181,6 +189,14 @@ const formSchema = z.object({
   collegeFrom: z.string().optional(),
   collegeTo: z.string().optional(),
   collegeGrades: z.string().optional(),
+
+  schoolClgFrom: z.string().optional(),
+  schoolClgTo: z.string().optional(),
+  attendedAs: z.string().optional(),
+  commentsOrObservations: z.string().optional(),
+  signedAsName: z.string().optional(),
+  schoolClgDate: z.string().optional(),
+  schoolClgPosition: z.string().optional(),
 
   // Email Reference
   emailDate1: z.string().optional(),
