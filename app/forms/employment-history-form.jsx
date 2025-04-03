@@ -15,7 +15,7 @@ export default function EmploymentHistoryForm({ form }) {
               <FormItem>
                 <FormLabel>Employer Name</FormLabel>
                 <FormControl>
-                  <Input placeholder="Enter employer name" {...field} />
+                  <Input placeholder="TOTAL SECURITY SERVICES" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -146,7 +146,7 @@ export default function EmploymentHistoryForm({ form }) {
               <FormItem>
                 <FormLabel>Employer Name</FormLabel>
                 <FormControl>
-                  <Input placeholder="Enter employer name" {...field} />
+                  <Input placeholder="NOOR WEAVING MILL" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>

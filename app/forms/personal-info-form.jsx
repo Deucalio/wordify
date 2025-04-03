@@ -175,7 +175,7 @@ export default function PersonalInfoForm({ form }) {
           )}
         />
 
-        <FormField
+        {/* <FormField
           control={form.control}
           name="placeOfEntryToUK"
           render={({ field }) => (
@@ -187,7 +187,7 @@ export default function PersonalInfoForm({ form }) {
               <FormMessage />
             </FormItem>
           )}
-        />
+        /> */}
 
         <FormField
           control={form.control}

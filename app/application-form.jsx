@@ -298,7 +298,7 @@ export default function ApplicationForm({ onSubmitSuccess, initialData }) {
       setFormError(null);
 
       // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+    //   await new Promise((resolve) => setTimeout(resolve, 1500));
 
       console.log("Form data submitted:", data);
 
