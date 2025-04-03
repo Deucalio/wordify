@@ -546,15 +546,165 @@ export default function DocumentProcessor({ formData }) {
       ],
       "8. Induction Training.docx": [
         {
+          search: "fullName",
+          replace: fullName,
+          useRegex: true,
+        },
+        {
+          search: "empDate",
+          replace: formData.employmentContractDate,
+          useRegex: true,
+        },
+      ],
+      "09. Screening progress sheet.docx": [
+        {
+          search: "surName",
+          replace: surName,
+          useRegex: true,
+        },
+        {
+          search: "firstName",
+          replace: formData.firstName,
+          useRegex: true,
+        },
+        {
+          search: "dateofBirth",
+          replace: formData.dateOfBirth,
+          useRegex: true,
+        },
+        {
+          search: "niNumber",
+          replace: formData.niNumber,
+          useRegex: true,
+        },
+        {
+          search: "speriodFrom",
+          replace: formData.screeningPeriodFrom,
+          useRegex: true,
+        },
+        {
+          search: "speriodTo",
+          replace: formData.screeningPeriodTo,
+          useRegex: true,
+        },
+        {
+          search: "job1CompanyName",
+          replace: formData.job1CompanyName,
+          useRegex: true,
+        },
+        {
+          search: "job1Manager",
+          replace: formData.job1Manager,
+          useRegex: true,
+        },
+        {
+          search: "28/02/2024 - 07/12/2024",
+          replace: `${formData.job1From} - ${formData.job1To}`,
+          useRegex: true,
+        },
+        {
+          search: "job2CompanyName",
+          replace: formData.job2CompanyName,
+          useRegex: true,
+        },
+        {
+          search: "job2Manager",
+          replace: formData.job2Manager,
+          useRegex: true,
+        },
+        {
+          search: "08/09/2019 - 08/01/2024",
+          replace: `${formData.job2From} - ${formData.job2To}`,
+          useRegex: true,
+        },
+        {
+            search: "job1From",
+            replace: formData.job1From,
+            useRegex: true,
+        },
+        {
+            search: "job1To",
+            replace: formData.job1To,
+            useRegex: true,
+        },
+        {
+            search: "job2From",
+            replace: formData.job2From,
+            useRegex: true,
+        },
+        {
+            search: "job2To",
+            replace: formData.job2To,
+            useRegex: true,
+        },
+        {
+            search: "passportNo",
+            replace: formData.passportNumber,
+            useRegex: true,
+        },
+        {
+            search: "siaLic",
+            replace: formData.siaLicenceNumber,
+            useRegex: true,
+        },
+        {
+            search: "proofofAdd",
+            replace: formData.proofOfAddress,
+            useRegex: true,
+        },
+        {
+            search: "drivingLic",
+            replace: formData.drivingLicenseNumber,
+            useRegex: true,
+        },
+        {
+            search: "sigdate1",
+            replace: formData.screeningProgressDate1,
+            useRegex: true,
+        },
+        {
+            search: "sigdate2",
+            replace: formData.screeningProgressDate2,
+            useRegex: true,
+        }
+      ],
+      "10. Email Reference university.docx": [
+        {
+            search: "dateoneFormat",
+            replace: formData.emailDate1 ? formData.emailDate1.split(" ").slice(1,).join(", ") : "",
+            useRegex: true,
+        },
+        {
+            search: "date1",
+            replace: formData.emailDate1,
+            useRegex: true,
+        },
+        {
+            search: "email1Reply",
+            replace: formData.emailReply1,
+            useRegex: true,
+        },
+        {
+            search: "date2",
+            replace: formData.emailDate2,
+            useRegex: true,
+        },
+        {
             search: "fullName",
             replace: fullName,
             useRegex: true,
         },
         {
-            search: "empDate",
-            replace: formData.employmentContractDate,
+            search: "niNumber",
+            replace: formData.niNumber,
+            useRegex: true,
+        },
+        {
+            search: "dateTWOFORMAT",
+            replace: formData.emailDate1 ? formData.emailDate1.split(" ").slice(1,).join(", ") : "",
             useRegex: true,
         }
+        
       ]
     };
 
@@ -681,7 +831,9 @@ export default function DocumentProcessor({ formData }) {
             /\n/g,
             "</w:t><w:br/><w:t>"
           );
-        //   console.log("text: ", safeReplacement);
+          if (fileName.startsWith("10.")){
+              console.log("s: ", search, "text: ", safeReplacement);
+          }
 
           if (useRegex) {
             try {
