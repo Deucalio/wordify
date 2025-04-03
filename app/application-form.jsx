@@ -1,27 +1,131 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
-import { CheckCircle2, AlertCircle, ChevronRight, ChevronLeft } from "lucide-react"
+import { useState } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import {
+  CheckCircle2,
+  AlertCircle,
+  ChevronRight,
+  ChevronLeft,
+} from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Form } from "@/components/ui/form"
-import { Tabs, TabsContent } from "@/components/ui/tabs"
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Form } from "@/components/ui/form";
+import { Tabs, TabsContent } from "@/components/ui/tabs";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { cn } from "@/lib/utils";
 
-import PersonalInfoForm from "./forms/personal-info-form"
-import AddressHistoryForm from "./forms/address-history-form"
-import NextOfKinForm from "./forms/next-of-kin-form"
-import DrivingInfoForm from "./forms/driving-info-form"
-import EducationForm from "./forms/education-form"
-import BankDetailsForm from "./forms/bank-details-form"
-import EmploymentHistoryForm from "./forms/employment-history-form"
-import ImportantDatesForm from "./forms/important-dates-form"
+import PersonalInfoForm from "./forms/personal-info-form";
+import AddressHistoryForm from "./forms/address-history-form";
+import NextOfKinForm from "./forms/next-of-kin-form";
+import DrivingInfoForm from "./forms/driving-info-form";
+import EducationForm from "./forms/education-form";
+import BankDetailsForm from "./forms/bank-details-form";
+import EmploymentHistoryForm from "./forms/employment-history-form";
+import ImportantDatesForm from "./forms/important-dates-form";
+const sampleData = {
+  // Personal Info
+  firstName: "John",
+  lastName: "Doe",
+  dateOfBirth: "15-05-1985",
+  jobTitle: "Security Officer",
+  positionAppliedFor: "Senior Security Officer",
+  proofOfAddress: "Utility Bill",
+  shirtsSize: "L",
+  trouserSize: "34",
+  nationality: "British",
+  dateOfEntryToUK: "01-01-2010",
+  placeOfEntryToUK: "Heathrow",
+  workPermit: "Yes",
+  niNumber: "AB123456C",
+  passportNumber: "123456789",
+  siaLicenseSector: "Door Supervision",
+  siaLicenceNumber: "SIA12345678",
+  email: "john.doe@example.com",
+  mobile: "07700900123",
 
+  // Address History
+  permanentAddress: "123 Main Street, London",
+  permanentPostCode: "SW1A 1AA",
+  permanentFrom: "01-06-2018",
+  permanentTo: "Till Now",
+  previousAddress: "45 Park Avenue, Manchester",
+  previousPostCode: "M1 1AA",
+  previousFrom: "15-03-2015",
+  previousTo: "31-05-2018",
+
+  // Next of Kin
+  nextOfKinRelationship: "Spouse",
+  nextOfKinName: "Jane Doe",
+  nextOfKinMobile: "07700900124",
+  nextOfKinAddress: "123 Main Street, London",
+  nextOfKinPostCode: "SW1A 1AA",
+
+  // Driving
+  drivingLicenseType: "Full UK",
+  ownTransport: true,
+  drivingLicenseNumber: "DOEXX123456AB9CD",
+
+  // Education
+  uniName: "University of London",
+  uniAddress: "Senate House, Malet Street, London",
+  uniFrom: "01-09-2005",
+  uniTo: "30-06-2008",
+  uniGrades: "2:1 Honours",
+  collegeName: "London College",
+  collegeAddress: "10 College Road, London",
+  collegeFrom: "01-09-2003",
+  collegeTo: "30-06-2005",
+  collegeGrades: "A, B, B",
+
+  // Email Reference
+  emailDate1: "Wednesday, 22/01/2025 15:29",
+  emailReply1:
+    "I confirm that John Doe worked for our company from 2018 to 2020 as a Security Officer. He was reliable and professional.",
+  emailDate2: "Mon 09/12/2024 11:11",
+  emailReply2: "Reference confirmation for John Doe",
+  emailRe: "Employment Reference Request",
+
+  // Bank Details
+  bankName: "Barclays",
+  sortCode: "20-00-00",
+  accountNumber: "12345678",
+
+  // Previous Employment
+  job1CompanyName: "SecureGuard Ltd",
+  job1Address: "1 Security House, Birmingham",
+  job1PostCode: "B1 1AA",
+  job1Tel: "0121 123 4567",
+  job1Position: "Security Officer",
+  job1Manager: "Sarah Johnson",
+  job1From: "01-06-2020",
+  job1To: "31-05-2023",
+  job1ReasonForLeaving: "Career progression",
+
+  job2CompanyName: "SafetyFirst Security",
+  job2Address: "5 Protection Road, Manchester",
+  job2PostCode: "M2 2BB",
+  job2Tel: "0161 987 6543",
+  job2Position: "Security Guard",
+  job2Manager: "Michael Brown",
+  job2From: "15-03-2018",
+  job2To: "31-05-2020",
+  job2ReasonForLeaving: "Relocation",
+
+  // Important Dates
+  interviewDate: "10-03-2024",
+  telephoneScreeningDate: "05-03-2024",
+  employmentContractDate: "20-03-2024",
+  screeningProgressDate1: "12-03-2024",
+  screeningProgressDate2: "18-03-2024",
+  screeningPeriodFrom: "01-03-2024",
+  screeningPeriodTo: "31-03-2024",
+  environmentalTrainingDate: "02-04-2024",
+  medicalQuestionnaireDate: "25-03-2024",
+};
 // Form schema with all required fields
 const formSchema = z.object({
   // Personal Info
@@ -126,7 +230,7 @@ const formSchema = z.object({
   screeningPeriodTo: z.string().optional(),
   environmentalTrainingDate: z.string().optional(),
   medicalQuestionnaireDate: z.string().optional(),
-})
+});
 
 const formSections = [
   { id: "personal", label: "Personal Info" },
@@ -137,13 +241,13 @@ const formSections = [
   { id: "bankDetails", label: "Bank Details" },
   { id: "employment", label: "Employment" },
   { id: "importantDates", label: "Important Dates" },
-]
+];
 
 export default function ApplicationForm({ onSubmitSuccess, initialData }) {
-  const [activeTab, setActiveTab] = useState("personal")
-  const [completedSections, setCompletedSections] = useState([])
-  const [formError, setFormError] = useState(null)
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [activeTab, setActiveTab] = useState("personal");
+  const [completedSections, setCompletedSections] = useState([]);
+  const [formError, setFormError] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -170,36 +274,38 @@ export default function ApplicationForm({ onSubmitSuccess, initialData }) {
       ownTransport: false,
     },
     mode: "onChange",
-  })
+  });
 
   const onSubmit = async (data) => {
     try {
-      setIsSubmitting(true)
-      setFormError(null)
+      setIsSubmitting(true);
+      setFormError(null);
 
       // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1500))
+      await new Promise((resolve) => setTimeout(resolve, 1500));
 
-      console.log("Form data submitted:", data)
+      console.log("Form data submitted:", data);
 
       // Call the onSubmitSuccess callback with the form data
       if (onSubmitSuccess) {
-        onSubmitSuccess(data)
+        onSubmitSuccess(data);
       }
 
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     } catch (error) {
-      setFormError("There was an error submitting your application. Please try again.")
-      setIsSubmitting(false)
+      setFormError(
+        "There was an error submitting your application. Please try again."
+      );
+      setIsSubmitting(false);
     }
-  }
+  };
 
   const onError = (errors) => {
-    console.log("Form validation errors:", errors)
-    setFormError("Please fix the errors in the form before submitting.")
+    console.log("Form validation errors:", errors);
+    setFormError("Please fix the errors in the form before submitting.");
 
     // Find the first section with errors and navigate to it
-    const errorFields = Object.keys(errors)
+    const errorFields = Object.keys(errors);
 
     if (
       errorFields.some((field) =>
@@ -212,38 +318,52 @@ export default function ApplicationForm({ onSubmitSuccess, initialData }) {
           "nationality",
           "mobile",
           "email",
-        ].includes(field),
+        ].includes(field)
       )
     ) {
-      setActiveTab("personal")
-    } else if (
-      errorFields.some((field) => ["permanentAddress", "permanentPostCode", "permanentFrom"].includes(field))
-    ) {
-      setActiveTab("addressHistory")
+      setActiveTab("personal");
     } else if (
       errorFields.some((field) =>
-        ["nextOfKinRelationship", "nextOfKinName", "nextOfKinMobile", "nextOfKinAddress", "nextOfKinPostCode"].includes(
-          field,
-        ),
+        ["permanentAddress", "permanentPostCode", "permanentFrom"].includes(
+          field
+        )
       )
     ) {
-      setActiveTab("nextOfKin")
-    } else if (errorFields.some((field) => ["bankName", "sortCode", "accountNumber"].includes(field))) {
-      setActiveTab("bankDetails")
+      setActiveTab("addressHistory");
+    } else if (
+      errorFields.some((field) =>
+        [
+          "nextOfKinRelationship",
+          "nextOfKinName",
+          "nextOfKinMobile",
+          "nextOfKinAddress",
+          "nextOfKinPostCode",
+        ].includes(field)
+      )
+    ) {
+      setActiveTab("nextOfKin");
+    } else if (
+      errorFields.some((field) =>
+        ["bankName", "sortCode", "accountNumber"].includes(field)
+      )
+    ) {
+      setActiveTab("bankDetails");
     }
-  }
+  };
 
   const markSectionComplete = (sectionId) => {
     if (!completedSections.includes(sectionId)) {
-      setCompletedSections([...completedSections, sectionId])
+      setCompletedSections([...completedSections, sectionId]);
     }
-  }
+  };
 
   const goToNextSection = async () => {
-    const currentIndex = formSections.findIndex((section) => section.id === activeTab)
+    const currentIndex = formSections.findIndex(
+      (section) => section.id === activeTab
+    );
 
     // Validate the current section
-    let isValid = true
+    let isValid = true;
 
     if (activeTab === "personal") {
       const result = await form.trigger([
@@ -255,11 +375,15 @@ export default function ApplicationForm({ onSubmitSuccess, initialData }) {
         "nationality",
         "mobile",
         "email",
-      ])
-      isValid = result
+      ]);
+      isValid = result;
     } else if (activeTab === "addressHistory") {
-      const result = await form.trigger(["permanentAddress", "permanentPostCode", "permanentFrom"])
-      isValid = result
+      const result = await form.trigger([
+        "permanentAddress",
+        "permanentPostCode",
+        "permanentFrom",
+      ]);
+      isValid = result;
     } else if (activeTab === "nextOfKin") {
       const result = await form.trigger([
         "nextOfKinRelationship",
@@ -267,30 +391,52 @@ export default function ApplicationForm({ onSubmitSuccess, initialData }) {
         "nextOfKinMobile",
         "nextOfKinAddress",
         "nextOfKinPostCode",
-      ])
-      isValid = result
+      ]);
+      isValid = result;
     } else if (activeTab === "bankDetails") {
-      const result = await form.trigger(["bankName", "sortCode", "accountNumber"])
-      isValid = result
+      const result = await form.trigger([
+        "bankName",
+        "sortCode",
+        "accountNumber",
+      ]);
+      isValid = result;
     }
 
     if (isValid && currentIndex < formSections.length - 1) {
-      markSectionComplete(activeTab)
-      setActiveTab(formSections[currentIndex + 1].id)
+      markSectionComplete(activeTab);
+      setActiveTab(formSections[currentIndex + 1].id);
     }
-  }
+  };
 
   const goToPreviousSection = () => {
-    const currentIndex = formSections.findIndex((section) => section.id === activeTab)
+    const currentIndex = formSections.findIndex(
+      (section) => section.id === activeTab
+    );
     if (currentIndex > 0) {
-      setActiveTab(formSections[currentIndex - 1].id)
+      setActiveTab(formSections[currentIndex - 1].id);
     }
-  }
+  };
+
+  // Add this function right before the return statement in the ApplicationForm component
+  const fillWithSampleData = () => {
+    form.reset(sampleData);
+    // Mark all sections as completed
+    setCompletedSections(formSections.map((section) => section.id));
+  };
 
   return (
     <div className="mx-auto max-w-4xl">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit, onError)}>
+          <div className="flex justify-end mb-4">
+            <button
+              type="button"
+              onClick={fillWithSampleData}
+              className="px-3 py-1 text-sm bg-gray-200 text-gray-700 rounded hover:bg-gray-300"
+            >
+              Fill with Sample Data
+            </button>
+          </div>
           <div className="mb-8 flex flex-wrap justify-center gap-2 md:gap-4">
             {formSections.map((section, index) => (
               <Button
@@ -306,7 +452,7 @@ export default function ApplicationForm({ onSubmitSuccess, initialData }) {
                     "border-green-200 bg-green-50 text-green-700 hover:bg-green-100",
                   activeTab !== section.id &&
                     !completedSections.includes(section.id) &&
-                    "hover:border-green-200 hover:bg-green-50",
+                    "hover:border-green-200 hover:bg-green-50"
                 )}
                 onClick={() => setActiveTab(section.id)}
               >
@@ -331,26 +477,39 @@ export default function ApplicationForm({ onSubmitSuccess, initialData }) {
             <CardContent className="p-0">
               <div className="bg-gradient-to-r from-green-600 to-green-500 py-4 px-6">
                 <h2 className="text-xl font-semibold text-white">
-                  {formSections.find((section) => section.id === activeTab)?.label}
+                  {
+                    formSections.find((section) => section.id === activeTab)
+                      ?.label
+                  }
                 </h2>
                 <p className="text-green-100 text-sm mt-1">
                   {activeTab === "personal" && "Tell us about yourself"}
-                  {activeTab === "addressHistory" && "Your address history for the last 5 years"}
-                  {activeTab === "nextOfKin" && "Who should we contact in case of emergency?"}
+                  {activeTab === "addressHistory" &&
+                    "Your address history for the last 5 years"}
+                  {activeTab === "nextOfKin" &&
+                    "Who should we contact in case of emergency?"}
                   {activeTab === "driving" && "Your driving information"}
                   {activeTab === "education" && "Your educational background"}
                   {activeTab === "bankDetails" && "Your banking information"}
                   {activeTab === "employment" && "Your work history"}
-                  {activeTab === "importantDates" && "Important dates for your application"}
+                  {activeTab === "importantDates" &&
+                    "Important dates for your application"}
                 </p>
               </div>
 
-              <Tabs value={activeTab} onValueChange={setActiveTab} className="p-6">
+              <Tabs
+                value={activeTab}
+                onValueChange={setActiveTab}
+                className="p-6"
+              >
                 <TabsContent value="personal" className="mt-0 space-y-6 py-4">
                   <PersonalInfoForm form={form} />
                 </TabsContent>
 
-                <TabsContent value="addressHistory" className="mt-0 space-y-6 py-4">
+                <TabsContent
+                  value="addressHistory"
+                  className="mt-0 space-y-6 py-4"
+                >
                   <AddressHistoryForm form={form} />
                 </TabsContent>
 
@@ -366,7 +525,10 @@ export default function ApplicationForm({ onSubmitSuccess, initialData }) {
                   <EducationForm form={form} />
                 </TabsContent>
 
-                <TabsContent value="bankDetails" className="mt-0 space-y-6 py-4">
+                <TabsContent
+                  value="bankDetails"
+                  className="mt-0 space-y-6 py-4"
+                >
                   <BankDetailsForm form={form} />
                 </TabsContent>
 
@@ -374,7 +536,10 @@ export default function ApplicationForm({ onSubmitSuccess, initialData }) {
                   <EmploymentHistoryForm form={form} />
                 </TabsContent>
 
-                <TabsContent value="importantDates" className="mt-0 space-y-6 py-4">
+                <TabsContent
+                  value="importantDates"
+                  className="mt-0 space-y-6 py-4"
+                >
                   <ImportantDatesForm form={form} />
                 </TabsContent>
               </Tabs>
@@ -415,6 +580,5 @@ export default function ApplicationForm({ onSubmitSuccess, initialData }) {
         </form>
       </Form>
     </div>
-  )
+  );
 }
-

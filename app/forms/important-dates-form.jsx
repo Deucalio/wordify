@@ -7,7 +7,7 @@ export default function ImportantDatesForm({ form }) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <FormField
           control={form.control}
-          name="interviewAppCompDate"
+          name="interviewDate"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Date in Interview, Application, Competence Form</FormLabel>
