@@ -40,9 +40,9 @@ export default function AddressHistoryForm({ form }) {
             name="permanentFrom"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>From (DD-MM-YYYY)</FormLabel>
+                <FormLabel>From (DD/MM/YYYY)</FormLabel>
                 <FormControl>
-                  <Input placeholder="DD-MM-YYYY" {...field} />
+                  <Input placeholder="DD/MM/YYYY" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -54,9 +54,9 @@ export default function AddressHistoryForm({ form }) {
             name="permanentTo"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>To (DD-MM-YYYY or Till Now)</FormLabel>
+                <FormLabel>To (DD/MM/YYYY or Till Now)</FormLabel>
                 <FormControl>
-                  <Input placeholder="DD-MM-YYYY or Till Now" {...field} />
+                  <Input placeholder="DD/MM/YYYY or Till Now" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -101,9 +101,9 @@ export default function AddressHistoryForm({ form }) {
             name="previousFrom"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>From (DD-MM-YYYY)</FormLabel>
+                <FormLabel>From (DD/MM/YYYY)</FormLabel>
                 <FormControl>
-                  <Input placeholder="DD-MM-YYYY" {...field} />
+                  <Input placeholder="DD/MM/YYYY" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -115,9 +115,9 @@ export default function AddressHistoryForm({ form }) {
             name="previousTo"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>To (DD-MM-YYYY)</FormLabel>
+                <FormLabel>To (DD/MM/YYYY)</FormLabel>
                 <FormControl>
-                  <Input placeholder="DD-MM-YYYY" {...field} />
+                  <Input placeholder="DD/MM/YYYY" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>

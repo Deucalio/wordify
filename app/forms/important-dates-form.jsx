@@ -12,7 +12,7 @@ export default function ImportantDatesForm({ form }) {
             <FormItem>
               <FormLabel>Date in Interview, Application, Competence Form</FormLabel>
               <FormControl>
-                <Input placeholder="DD-MM-YYYY" {...field} />
+                <Input placeholder="DD/MM/YYYY" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -27,7 +27,7 @@ export default function ImportantDatesForm({ form }) {
             <FormItem>
               <FormLabel>Date in Telephone Screening</FormLabel>
               <FormControl>
-                <Input placeholder="DD-MM-YYYY" {...field} />
+                <Input placeholder="DD/MM/YYYY" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -41,7 +41,7 @@ export default function ImportantDatesForm({ form }) {
             <FormItem>
               <FormLabel>Date in Employment Contract, Induction Training, Uniform Issue Record, WTR 48 Forms </FormLabel>
               <FormControl>
-                <Input placeholder="DD-MM-YYYY" {...field} />
+                <Input placeholder="DD/MM/YYYY" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -57,7 +57,7 @@ export default function ImportantDatesForm({ form }) {
             <FormItem>
               <FormLabel>Date for 1st Signature in Screening Progress</FormLabel>
               <FormControl>
-                <Input placeholder="DD-MM-YYYY" {...field} />
+                <Input placeholder="DD/MM/YYYY" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -71,7 +71,7 @@ export default function ImportantDatesForm({ form }) {
             <FormItem>
               <FormLabel>Date for 2nd Signature in Screening Progress</FormLabel>
               <FormControl>
-                <Input placeholder="DD-MM-YYYY" {...field} />
+                <Input placeholder="DD/MM/YYYY" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -85,7 +85,7 @@ export default function ImportantDatesForm({ form }) {
             <FormItem>
               <FormLabel>12/16 Screening Period From</FormLabel>
               <FormControl>
-                <Input placeholder="DD-MM-YYYY" {...field} />
+                <Input placeholder="DD/MM/YYYY" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -99,7 +99,7 @@ export default function ImportantDatesForm({ form }) {
             <FormItem>
               <FormLabel>12/16 Screening Period To</FormLabel>
               <FormControl>
-                <Input placeholder="DD-MM-YYYY" {...field} />
+                <Input placeholder="DD/MM/YYYY" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -113,7 +113,7 @@ export default function ImportantDatesForm({ form }) {
             <FormItem>
               <FormLabel>Date in Environmental Training, and Medical Questionnaire</FormLabel>
               <FormControl>
-                <Input placeholder="DD-MM-YYYY" {...field} />
+                <Input placeholder="DD/MM/YYYY" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>

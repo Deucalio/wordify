@@ -97,9 +97,9 @@ export default function EmploymentHistoryForm({ form }) {
             name="job1From"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>From (DD-MM-YYYY)</FormLabel>
+                <FormLabel>From (DD/MM/YYYY)</FormLabel>
                 <FormControl>
-                  <Input placeholder="DD-MM-YYYY" {...field} />
+                  <Input placeholder="DD/MM/YYYY" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -111,9 +111,9 @@ export default function EmploymentHistoryForm({ form }) {
             name="job1To"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>To (DD-MM-YYYY)</FormLabel>
+                <FormLabel>To (DD/MM/YYYY)</FormLabel>
                 <FormControl>
-                  <Input placeholder="DD-MM-YYYY" {...field} />
+                  <Input placeholder="DD/MM/YYYY" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -228,9 +228,9 @@ export default function EmploymentHistoryForm({ form }) {
             name="job2From"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>From (DD-MM-YYYY)</FormLabel>
+                <FormLabel>From (DD/MM/YYYY)</FormLabel>
                 <FormControl>
-                  <Input placeholder="DD-MM-YYYY" {...field} />
+                  <Input placeholder="DD/MM/YYYY" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -242,9 +242,9 @@ export default function EmploymentHistoryForm({ form }) {
             name="job2To"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>To (DD-MM-YYYY)</FormLabel>
+                <FormLabel>To (DD/MM/YYYY)</FormLabel>
                 <FormControl>
-                  <Input placeholder="DD-MM-YYYY" {...field} />
+                  <Input placeholder="DD/MM/YYYY" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>

@@ -48,9 +48,9 @@ export default function EducationForm({ form }) {
             name="uniFrom"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>From (DD-MM-YYYY)</FormLabel>
+                <FormLabel>From (DD/MM/YYYY)</FormLabel>
                 <FormControl>
-                  <Input placeholder="DD-MM-YYYY" {...field} />
+                  <Input placeholder="DD/MM/YYYY" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -62,9 +62,9 @@ export default function EducationForm({ form }) {
             name="uniTo"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>To (DD-MM-YYYY)</FormLabel>
+                <FormLabel>To (DD/MM/YYYY)</FormLabel>
                 <FormControl>
-                  <Input placeholder="DD-MM-YYYY" {...field} />
+                  <Input placeholder="DD/MM/YYYY" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -123,9 +123,9 @@ export default function EducationForm({ form }) {
             name="collegeFrom"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>From (DD-MM-YYYY)</FormLabel>
+                <FormLabel>From (DD/MM/YYYY)</FormLabel>
                 <FormControl>
-                  <Input placeholder="DD-MM-YYYY" {...field} />
+                  <Input placeholder="DD/MM/YYYY" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -137,9 +137,9 @@ export default function EducationForm({ form }) {
             name="collegeTo"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>To (DD-MM-YYYY)</FormLabel>
+                <FormLabel>To (DD/MM/YYYY)</FormLabel>
                 <FormControl>
-                  <Input placeholder="DD-MM-YYYY" {...field} />
+                  <Input placeholder="DD/MM/YYYY" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>

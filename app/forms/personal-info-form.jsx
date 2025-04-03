@@ -38,9 +38,9 @@ export default function PersonalInfoForm({ form }) {
           name="dateOfBirth"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Date of Birth (DD-MM-YYYY)</FormLabel>
+              <FormLabel>Date of Birth (DD/MM/YYYY)</FormLabel>
               <FormControl>
-                <Input placeholder="DD-MM-YYYY" {...field} />
+                <Input placeholder="DD/MM/YYYY" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -166,9 +166,9 @@ export default function PersonalInfoForm({ form }) {
           name="dateOfEntryToUK"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Date of Entry to UK (DD-MM-YYYY)</FormLabel>
+              <FormLabel>Date of Entry to UK (DD/MM/YYYY)</FormLabel>
               <FormControl>
-                <Input placeholder="DD-MM-YYYY" {...field} />
+                <Input placeholder="DD/MM/YYYY" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>

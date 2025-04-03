@@ -29,145 +29,11 @@ export default function DocumentProcessor({ formData }) {
   const [fileReplacements, setFileReplacements] = useState({});
   const [logs, addLog] = useState([]);
 
-  function formatDate_(dateStr) {
-    console.log(dateStr);
-    dateStr = dateStr.split(" ")[0];
-    console.log("s: ", dateStr);
-    // Split the input date string into day, month, and year
-    const [day, month, year] = dateStr.split("/");
-
-    // Define an array of month names
-    const months = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
-
-    // Convert month (which is 01-12) to the full month name
-    const monthName = months[parseInt(month) - 1];
-
-    // Return the formatted date
-    return `${day}-${monthName}-${year}`;
-  }
-
-  function formatDate__(dateStr) {
-    // Parse the input date string to a JavaScript Date object
-    const date = new Date(dateStr);
-
-    // Get the day, month, and year
-    const day = String(date.getDate()).padStart(2, "0"); // Ensures two digits for the day
-    const month = String(date.getMonth() + 1).padStart(2, "0"); // Get month (0-indexed)
-    const year = date.getFullYear();
-
-    // Return the formatted date as DD-MM-YYYY
-    return `${day}-${month}-${year}`;
-  }
-
-  // Format dates for document use
-  const formatDate = (date, format = "standard") => {
-    if (!date) return "";
-
-    // If date is already a string in the expected format, return it
-    if (typeof date === "string") {
-      // Try to parse the string date if needed for formatting
-      try {
-        // Check if it's in DD-MM-YYYY format
-        if (/^\d{1,2}-\d{1,2}-\d{4}$/.test(date)) {
-          const [day, month, year] = date.split("-").map(Number);
-          const d = new Date(year, month - 1, day);
-
-          if (format === "long") {
-            const options = {
-              weekday: "long",
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            };
-            return d.toLocaleDateString("en-US", options);
-          } else if (format === "ordinal") {
-            const suffix = getOrdinalSuffix(day);
-            const monthNames = [
-              "January",
-              "February",
-              "March",
-              "April",
-              "May",
-              "June",
-              "July",
-              "August",
-              "September",
-              "October",
-              "November",
-              "December",
-            ];
-            return `${day}${suffix} of ${monthNames[month - 1]} ${year}`;
-          }
-
-          // If no special formatting needed, return the original string
-          return date;
-        }
-
-        // If it's already in a different format, just return it
-        return date;
-      } catch (e) {
-        console.error("Error parsing date string:", e);
-        return date; // Return the original string if parsing fails
-      }
-    }
-
-    // Handle Date objects (legacy support)
-    if (date instanceof Date) {
-      if (format === "standard") {
-        return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
-      } else if (format === "long") {
-        const options = {
-          weekday: "long",
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        };
-        return date.toLocaleDateString("en-US", options);
-      } else if (format === "ordinal") {
-        const day = date.getDate();
-        const suffix = getOrdinalSuffix(day);
-        const month = date.toLocaleString("default", { month: "long" });
-        return `${day}${suffix} of ${month} ${date.getFullYear()}`;
-      }
-
-      return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
-    }
-
-    return "";
-  };
-
-  const getOrdinalSuffix = (day) => {
-    if (day > 3 && day < 21) return "th";
-    switch (day % 10) {
-      case 1:
-        return "st";
-      case 2:
-        return "nd";
-      case 3:
-        return "rd";
-      default:
-        return "th";
-    }
-  };
-
   //   Prepare form data for document replacements
   useEffect(() => {
     if (!formData) return;
 
-    //  let formData = {
+    // let formData = {
     //   firstName: "John",
     //   lastName: "Doe",
     //   dateOfBirth: "15-05-1985",
@@ -587,6 +453,109 @@ export default function DocumentProcessor({ formData }) {
           useRegex: true,
         },
       ],
+      "3. Telephone Screening.docx": [
+        {
+          search: "fullName",
+          replace: fullName,
+          useRegex: true,
+        },
+        {
+          search: "job1Name",
+          replace: formData.job1CompanyName,
+          useRegex: true,
+        },
+        {
+          search: "jobOneTell",
+          replace: formData.job1Tel,
+          useRegex: true,
+        },
+        {
+          search: "job1Manager",
+          replace: formData.job1Manager,
+          useRegex: true,
+        },
+        {
+          search: "job1From",
+          replace: formData.job1From,
+          useRegex: true,
+        },
+        {
+          search: "job1To",
+          replace: formData.job1To,
+          useRegex: true,
+        },
+        {
+          search: "job2Name",
+          replace: formData.job2CompanyName,
+          useRegex: true,
+        },
+        {
+          search: "job2Tel",
+          replace: formData.job2Tel,
+          useRegex: true,
+        },
+        {
+          search: "job2Manager",
+          replace: formData.job2Manager,
+          useRegex: true,
+        },
+        {
+          search: "job2From",
+          replace: formData.job2From,
+          useRegex: true,
+        },
+        {
+          search: "job2To",
+          replace: formData.job2To,
+          useRegex: true,
+        },
+        {
+          search: "ddDate",
+          replace: formData.telephoneScreeningDate,
+          useRegex: true,
+        },
+      ],
+      "4. Competence Form.docx": [
+        {
+          search: "interviewDate",
+          replace: formData.interviewDate,
+          useRegex: true,
+        },
+        {
+          search: "fullName",
+          replace: fullName,
+          useRegex: true,
+        },
+      ],
+      "6. Employment Contract.docx": [
+        {
+          search: "fullName",
+          replace: fullName,
+          useRegex: true,
+        },
+        {
+          search: "empDate",
+          replace: formData.employmentContractDate,
+          useRegex: true,
+        },
+        {
+          search: "jobTitle",
+          replace: formData.jobTitle,
+          useRegex: true,
+        },
+      ],
+      "8. Induction Training.docx": [
+        {
+            search: "fullName",
+            replace: fullName,
+            useRegex: true,
+        },
+        {
+            search: "empDate",
+            replace: formData.employmentContractDate,
+            useRegex: true,
+        }
+      ]
     };
 
     // "files/2. Application Form.docx",
@@ -712,7 +681,7 @@ export default function DocumentProcessor({ formData }) {
             /\n/g,
             "</w:t><w:br/><w:t>"
           );
-          console.log("text: ", safeReplacement);
+        //   console.log("text: ", safeReplacement);
 
           if (useRegex) {
             try {
