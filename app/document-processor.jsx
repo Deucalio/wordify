@@ -267,6 +267,16 @@ export default function DocumentProcessor({ formData }) {
               replace: fullName,
               useRegex: true,
             },
+            {
+                search: "SECURITY OFFICER",
+                replace: formData.jobTitle,
+                useRegex: true,
+            },
+            {
+                search: "28/11/2024",
+                replace: formData.interviewDate,
+                useRegex: true,
+            },
           ],
     };
 
