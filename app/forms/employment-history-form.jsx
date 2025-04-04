@@ -1,6 +1,13 @@
-import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+import {
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function EmploymentHistoryForm({ form }) {
   return (
@@ -114,6 +121,56 @@ export default function EmploymentHistoryForm({ form }) {
                 <FormLabel>To (DD/MM/YYYY)</FormLabel>
                 <FormControl>
                   <Input placeholder="DD/MM/YYYY" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="job1Email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Email</FormLabel>
+                <FormControl>
+                  <Input placeholder="fire1@piazzaitaliastore.it" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          {/*  */}
+
+          <FormField
+            control={form.control}
+            name="job1EmailReplyDate"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Email Reply Date</FormLabel>
+                <FormControl>
+                  <Input placeholder="Tuesday, 11/03/2025 14:31" {...field} />
+                </FormControl>
+                <FormDescription>
+                  This is the date for Email screening file.
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="job1EmailReply"
+            render={({ field }) => (
+              <FormItem className="md:col-span-2">
+                <FormLabel>Email Reply</FormLabel>
+                <FormControl>
+                  <Textarea
+                    placeholder="Dear Sir, Thank you for reaching out regarding ADEEL ALI reference. Adeel Ali joined our team on 10 April 2024 and worked diligently"
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -253,6 +310,54 @@ export default function EmploymentHistoryForm({ form }) {
 
           <FormField
             control={form.control}
+            name="job2Email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Email</FormLabel>
+                <FormControl>
+                  <Input placeholder="job2@gmail.com" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="job2EmailReplyDate"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Email Reply Date</FormLabel>
+                <FormControl>
+                  <Input placeholder="Monday, 10/03/2025 14:26" {...field} />
+                </FormControl>
+                <FormDescription>
+                  This is the date for Email screening file.
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="job2EmailReply"
+            render={({ field }) => (
+              <FormItem className="md:col-span-2">
+                <FormLabel>Email Reply</FormLabel>
+                <FormControl>
+                  <Textarea
+                    placeholder="Dear Sir, Thank you for reaching out regarding ADEEL ALI reference. Adeel Ali joined our team on 10 April 2024 and worked diligently"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
             name="job2ReasonForLeaving"
             render={({ field }) => (
               <FormItem className="md:col-span-2">
@@ -267,6 +372,5 @@ export default function EmploymentHistoryForm({ form }) {
         </div>
       </div>
     </div>
-  )
+  );
 }
-

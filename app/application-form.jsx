@@ -80,6 +80,7 @@ const sampleData = {
     collegeFrom: "01/09/2003",
     collegeTo: "30/06/2005",
     collegeGrades: "A, B, B",
+   
   
     schoolClgFrom: "01/09/2001",
     schoolClgTo: "30/06/2003",
@@ -112,6 +113,9 @@ const sampleData = {
     job1From: "01/06/2020",
     job1To: "31/05/2023",
     job1ReasonForLeaving: "Career progression",
+    job1Email: "job1@example.com",
+    job1EmailReplyDate: "Tuesday, 11/03/2025 14:31",
+    job1EmailReply: "Dear Sir, Thank you for reaching out regarding ADEEL ALI reference",
   
     job2CompanyName: "SafetyFirst Security",
     job2Address: "5 Protection Road, Manchester",
@@ -122,10 +126,14 @@ const sampleData = {
     job2From: "15/03/2018",
     job2To: "31/05/2020",
     job2ReasonForLeaving: "Relocation",
+    job2Email: "job2@example.com",
+    job2EmailReplyDate: "Monday, 10/03/2025 14:26",
+    job2EmailReply: "Dear Sir, Thank you for reaching out regarding ADEEL ALI reference",
   
     // Important Dates
     interviewDate: "10/03/2024",
-    telephoneScreeningDate: "05/03/2024",
+    telephoneScreeningDate: "Thursday 23/01/2025 13:22",
+    telephoneScreeningDateTwo: "Thursday 23/01/2025 13:28",
     employmentContractDate: "20/03/2024",
     screeningProgressDate1: "12/03/2024",
     screeningProgressDate2: "18/03/2024",
@@ -221,6 +229,9 @@ const formSchema = z.object({
   job1From: z.string().optional(),
   job1To: z.string().optional(),
   job1ReasonForLeaving: z.string().optional(),
+  job1Email: z.string().optional(),
+  job1EmailReplyDate: z.string().optional(),
+  job1EmailReply: z.string().optional(),
 
   job2CompanyName: z.string().optional(),
   job2Address: z.string().optional(),
@@ -231,12 +242,16 @@ const formSchema = z.object({
   job2From: z.string().optional(),
   job2To: z.string().optional(),
   job2ReasonForLeaving: z.string().optional(),
+  job2Email: z.string().optional(),
+  job2EmailReplyDate: z.string().optional(),
+  job2EmailReply: z.string().optional(),
 
   // Important Dates
   interviewDate: z.string().optional(),
   applicationDate: z.string().optional(),
   competenceFormDate: z.string().optional(),
   telephoneScreeningDate: z.string().optional(),
+  telephoneScreeningDateTwo: z.string().optional(),
   employmentContractDate: z.string().optional(),
   inductionTrainingDate: z.string().optional(),
   uniformIssueDate: z.string().optional(),

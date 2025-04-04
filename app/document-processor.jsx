@@ -17,7 +17,12 @@ const documentFiles = [
   "files/09. Screening progress sheet.docx",
   "files/10. Email Reference university.docx",
   "files/10. School College University Confirmation UNIVERSITY.docx",
+  "files/11 . email screening - 1.docx",
+  "files/11 . email screening - 2.docx",
+  "files/11. Employment reference - 1.docx",
+  "files/11. Employment reference - 2.docx",
   "files/12. Uniform Issue record form.docx",
+  
   "files/13. Environmental training.docx",
   "files/14. WTR 48 hour opt out agreement.docx",
   "files/15. Medical Questionnaire.docx",
@@ -511,7 +516,7 @@ export default function DocumentProcessor({ formData }) {
         },
         {
           search: "ddDate",
-          replace: formData.telephoneScreeningDate,
+          replace: formData.telephoneScreeningDate.split(" ")[1],
           useRegex: true,
         },
       ],
@@ -760,6 +765,209 @@ export default function DocumentProcessor({ formData }) {
           replace: formData.schoolClgPosition,
           useRegex: true,
         },
+      ],
+      "11 . email screening - 1.docx": [
+        {
+          search: "dateFormatted",
+          replace: formData.job1EmailReplyDate.split(" ").slice(1,).join(", "),
+          useRegex: true,
+        },
+        {
+          search: "jobEmail",
+          replace: formData.job1Email,
+          useRegex: true,
+        },
+        {
+          search: "Mail",
+          replace: formData.job1Email,
+          useRegex: true,
+        },
+        {
+          search: "dateOne",
+          replace: formData.job1EmailReplyDate,
+          useRegex: true,
+        },
+        {
+          search: "job1ScreenReply",
+          replace: formData.job1EmailReply,
+          useRegex: true,
+        },
+        {
+          search: "telScreen",
+          replace: formData.telephoneScreeningDate,
+          useRegex: true,
+        },
+        {
+          search: "fullName",
+          replace: fullName,
+          useRegex: true,
+        },
+        {
+          search: "niNumber",
+          replace: formData.niNumber,
+          useRegex: true,
+        },
+        {
+          search: "dateSecond",
+          replace: formData.telephoneScreeningDate.split(" ").slice(1).join(", "),
+          useRegex: true,
+        }
+      ],
+      "11 . email screening - 2.docx": [
+        {
+          search: "dateFormatted",
+          replace: formData.job2EmailReplyDate.split(" ").slice(1,).join(", "),
+          useRegex: true,
+        },
+        {
+          search: "_jobEmail",
+          replace: formData.job2Email,
+          useRegex: true,
+        },
+        {
+          search: "__",
+          replace: formData.job2Email,
+          useRegex: true,
+        },
+        {
+          search: "jobEmail",
+          replace: formData.job2Email,
+          useRegex: true,
+        },
+        {
+          search: "dateOne",
+          replace: formData.job2EmailReplyDate,
+          useRegex: true,
+        },
+        {
+          search: "job1ScreenReply",
+          replace: formData.job2EmailReply,
+          useRegex: true,
+        },
+        {
+          search: "telScreen",
+          replace: formData.telephoneScreeningDateTwo,
+          useRegex: true,
+        },
+        {
+          search: "fullName",
+          replace: fullName,
+          useRegex: true,
+        },
+        {
+          search: "niNumber",
+          replace: formData.niNumber,
+          useRegex: true,
+        },
+        {
+          search: "dateSecond",
+          replace: formData.telephoneScreeningDateTwo.split(" ").slice(1).join(", "),
+          useRegex: true,
+        }
+      ],
+      "11. Employment reference - 1.docx": [
+        {
+          search: "fullName",
+          replace: fullName,
+          useRegex: true,
+        },
+        {
+          search: "permAdd",
+          replace: formData.permanentAddress,
+          useRegex: true,
+        },
+        {
+          search: "dob",
+          replace: formData.dateOfBirth,
+          useRegex: true,
+        },
+        {
+          search: "niNumber",
+          replace: formData.niNumber,
+          useRegex: true,
+        },
+        {
+          search: "jobName",
+          replace: formData.job1CompanyName,
+          useRegex: true,
+        },
+        {
+          search: "jobPosition",
+          replace: formData.job1Position,
+          useRegex: true,
+        },
+        {
+          search: "jobFrom",
+          replace: formData.job1From,
+          useRegex: true,
+        },
+        {
+          search: "jobTo",
+          replace: formData.job1To,
+          useRegex: true,
+        },
+        {
+          search: "jobManager",
+          replace: formData.job1Manager,
+          useRegex: true,
+        },
+        {
+          search: "emailDate",
+          replace: formData.job1EmailReplyDate.split(" ")[1],
+          useRegex: true,
+        }
+      ],
+      "11. Employment reference - 2.docx": [
+        {
+          search: "fullName",
+          replace: fullName,
+          useRegex: true,
+        },
+        {
+          search: "permAdd",
+          replace: formData.permanentAddress,
+          useRegex: true,
+        },
+        {
+          search: "dob",
+          replace: formData.dateOfBirth,
+          useRegex: true,
+        },
+        {
+          search: "niNumber",
+          replace: formData.niNumber,
+          useRegex: true,
+        },
+        {
+          search: "jobName",
+          replace: formData.job2CompanyName,
+          useRegex: true,
+        },
+        {
+          search: "jobPosition",
+          replace: formData.job2Position,
+          useRegex: true,
+        },
+        {
+          search: "jobFrom",
+          replace: formData.job2From,
+          useRegex: true,
+        },
+        {
+          search: "jobTo",
+          replace: formData.job2To,
+          useRegex: true,
+        },
+        {
+          search: "jobManager",
+          replace: formData.job2Manager,
+          useRegex: true,
+        },
+        {
+          search: "emailDate",
+          replace: formData.job2EmailReplyDate.split(" ")[1],
+          useRegex: true,
+        }
       ],
       "12. Uniform Issue record form.docx": [
         {
