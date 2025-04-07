@@ -26,123 +26,125 @@ import EducationForm from "./forms/education-form";
 import BankDetailsForm from "./forms/bank-details-form";
 import EmploymentHistoryForm from "./forms/employment-history-form";
 import ImportantDatesForm from "./forms/important-dates-form";
+import axios from "axios";
 const sampleData = {
-    // Personal Info
-    firstName: "John",
-    lastName: "Doe",
-    dateOfBirth: "15/05/1985",
-    jobTitle: "Security Officer",
-    positionAppliedFor: "Senior Security Officer",
-    proofOfAddress: "Utility Bill",
-    shirtsSize: "Large",
-    trouserSize: "Medium",
-    nationality: "British",
-    dateOfEntryToUK: "01/01/2010",
-    placeOfEntryToUK: "Heathrow",
-    workPermit: "Yes",
-    niNumber: "AB123456C",
-    passportNumber: "123456789",
-    siaLicenseSector: "Door Supervision",
-    siaLicenceNumber: "SIA12345678",
-    email: "john.doe@example.com",
-    mobile: "07700900123",
-  
-    // Address History
-    permanentAddress: "123 Main Street, London",
-    permanentPostCode: "SW1A 1AA",
-    permanentFrom: "01/06/2018",
-    permanentTo: "Till Now",
-    previousAddress: "45 Park Avenue, Manchester",
-    previousPostCode: "M1 1AA",
-    previousFrom: "15/03/2015",
-    previousTo: "31/05/2018",
-  
-    // Next of Kin
-    nextOfKinRelationship: "Spouse",
-    nextOfKinName: "Jane Doe",
-    nextOfKinMobile: "07700900124",
-    nextOfKinAddress: "123 Main Street, London",
-    nextOfKinPostCode: "SW1A 1AA",
-  
-    // Driving
-    drivingLicenseType: "Full UK",
-    ownTransport: true,
-    drivingLicenseNumber: "DOEXX123456AB9CD",
-  
-    // Education
-    uniName: "University of London",
-    uniAddress: "Senate House, Malet Street, London",
-    uniFrom: "01/09/2005",
-    uniTo: "30/06/2008",
-    uniGrades: "2:1 Honours",
-    collegeName: "London College",
-    collegeAddress: "10 College Road, London",
-    collegeFrom: "01/09/2003",
-    collegeTo: "30/06/2005",
-    collegeGrades: "A, B, B",
-   
-  
-    schoolClgFrom: "01/09/2001",
-    schoolClgTo: "30/06/2003",
-    attendedAs: "Student",
-    commentsOrObservations: "None",
-    signedAsName: "John Doe",
-    schoolClgDate: "01/09/2001",
-    schoolClgPosition: "Head Boy",
-  
-    // Email Reference
-    emailDate1: "Wednesday, 22/01/2025 15:29",
-    emailReply1:
-      "I confirm that John Doe worked for our company from 2018 to 2020 as a Security Officer. He was reliable and professional.",
-    emailDate2: "Mon 09/12/2024 11:11",
-    emailReply2: "Reference confirmation for John Doe",
-    emailRe: "Employment Reference Request",
-  
-    // Bank Details
-    bankName: "Barclays",
-    sortCode: "20-00-00",
-    accountNumber: "12345678",
-  
-    // Previous Employment
-    job1CompanyName: "SecureGuard Ltd",
-    job1Address: "1 Security House, Birmingham",
-    job1PostCode: "B1 1AA",
-    job1Tel: "0121 123 4567",
-    job1Position: "Security Officer",
-    job1Manager: "Sarah Johnson",
-    job1From: "01/06/2020",
-    job1To: "31/05/2023",
-    job1ReasonForLeaving: "Career progression",
-    job1Email: "job1@example.com",
-    job1EmailReplyDate: "Tuesday, 11/03/2025 14:31",
-    job1EmailReply: "Dear Sir, Thank you for reaching out regarding ADEEL ALI reference",
-  
-    job2CompanyName: "SafetyFirst Security",
-    job2Address: "5 Protection Road, Manchester",
-    job2PostCode: "M2 2BB",
-    job2Tel: "0161 987 6543",
-    job2Position: "Security Guard",
-    job2Manager: "Michael Brown",
-    job2From: "15/03/2018",
-    job2To: "31/05/2020",
-    job2ReasonForLeaving: "Relocation",
-    job2Email: "job2@example.com",
-    job2EmailReplyDate: "Monday, 10/03/2025 14:26",
-    job2EmailReply: "Dear Sir, Thank you for reaching out regarding ADEEL ALI reference",
-  
-    // Important Dates
-    interviewDate: "10/03/2024",
-    telephoneScreeningDate: "Thursday 23/01/2025 13:22",
-    telephoneScreeningDateTwo: "Thursday 23/01/2025 13:28",
-    employmentContractDate: "20/03/2024",
-    screeningProgressDate1: "12/03/2024",
-    screeningProgressDate2: "18/03/2024",
-    screeningPeriodFrom: "01/03/2024",
-    screeningPeriodTo: "31/03/2024",
-    environmentalTrainingDate: "02/04/2024",
-    medicalQuestionnaireDate: "25/03/2024",
-  };
-  
+  // Personal Info
+  firstName: "John",
+  lastName: "Doe",
+  dateOfBirth: "15/05/1985",
+  jobTitle: "Security Officer",
+  positionAppliedFor: "Senior Security Officer",
+  proofOfAddress: "Utility Bill",
+  shirtsSize: "Large",
+  trouserSize: "Medium",
+  nationality: "British",
+  dateOfEntryToUK: "01/01/2010",
+  placeOfEntryToUK: "Heathrow",
+  workPermit: "Yes",
+  niNumber: "AB123456C",
+  passportNumber: "123456789",
+  siaLicenseSector: "Door Supervision",
+  siaLicenceNumber: "SIA12345678",
+  email: "john.doe@example.com",
+  mobile: "07700900123",
+
+  // Address History
+  permanentAddress: "123 Main Street, London",
+  permanentPostCode: "SW1A 1AA",
+  permanentFrom: "01/06/2018",
+  permanentTo: "Till Now",
+  previousAddress: "45 Park Avenue, Manchester",
+  previousPostCode: "M1 1AA",
+  previousFrom: "15/03/2015",
+  previousTo: "31/05/2018",
+
+  // Next of Kin
+  nextOfKinRelationship: "Spouse",
+  nextOfKinName: "Jane Doe",
+  nextOfKinMobile: "07700900124",
+  nextOfKinAddress: "123 Main Street, London",
+  nextOfKinPostCode: "SW1A 1AA",
+
+  // Driving
+  drivingLicenseType: "Full UK",
+  ownTransport: true,
+  drivingLicenseNumber: "DOEXX123456AB9CD",
+
+  // Education
+  uniName: "University of London",
+  uniAddress: "Senate House, Malet Street, London",
+  uniFrom: "01/09/2005",
+  uniTo: "30/06/2008",
+  uniGrades: "2:1 Honours",
+  collegeName: "London College",
+  collegeAddress: "10 College Road, London",
+  collegeFrom: "01/09/2003",
+  collegeTo: "30/06/2005",
+  collegeGrades: "A, B, B",
+
+  schoolClgFrom: "01/09/2001",
+  schoolClgTo: "30/06/2003",
+  attendedAs: "Student",
+  commentsOrObservations: "None",
+  signedAsName: "John Doe",
+  schoolClgDate: "01/09/2001",
+  schoolClgPosition: "Head Boy",
+
+  // Email Reference
+  emailDate1: "Wednesday, 22/01/2025 15:29",
+  emailReply1:
+    "I confirm that John Doe worked for our company from 2018 to 2020 as a Security Officer. He was reliable and professional.",
+  emailDate2: "Mon 09/12/2024 11:11",
+  emailReply2: "Reference confirmation for John Doe",
+  emailRe: "Employment Reference Request",
+
+  // Bank Details
+  bankName: "Barclays",
+  sortCode: "20-00-00",
+  accountNumber: "12345678",
+
+  // Previous Employment
+  job1CompanyName: "SecureGuard Ltd",
+  job1Address: "1 Security House, Birmingham",
+  job1PostCode: "B1 1AA",
+  job1Tel: "0121 123 4567",
+  job1Position: "Security Officer",
+  job1Manager: "Sarah Johnson",
+  job1From: "01/06/2020",
+  job1To: "31/05/2023",
+  job1ReasonForLeaving: "Career progression",
+  job1Email: "job1@example.com",
+  job1EmailReplyDate: "Tuesday, 11/03/2025 14:31",
+  job1EmailReply:
+    "Dear Sir, Thank you for reaching out regarding ADEEL ALI reference",
+
+  job2CompanyName: "SafetyFirst Security",
+  job2Address: "5 Protection Road, Manchester",
+  job2PostCode: "M2 2BB",
+  job2Tel: "0161 987 6543",
+  job2Position: "Security Guard",
+  job2Manager: "Michael Brown",
+  job2From: "15/03/2018",
+  job2To: "31/05/2020",
+  job2ReasonForLeaving: "Relocation",
+  job2Email: "job2@example.com",
+  job2EmailReplyDate: "Monday, 10/03/2025 14:26",
+  job2EmailReply:
+    "Dear Sir, Thank you for reaching out regarding ADEEL ALI reference",
+
+  // Important Dates
+  interviewDate: "10/03/2024",
+  telephoneScreeningDate: "Thursday 23/01/2025 13:22",
+  telephoneScreeningDateTwo: "Thursday 23/01/2025 13:28",
+  employmentContractDate: "20/03/2024",
+  screeningProgressDate1: "12/03/2024",
+  screeningProgressDate2: "18/03/2024",
+  screeningPeriodFrom: "01/03/2024",
+  screeningPeriodTo: "31/03/2024",
+  environmentalTrainingDate: "02/04/2024",
+  medicalQuestionnaireDate: "25/03/2024",
+};
+
 // Form schema with all required fields
 const formSchema = z.object({
   // Personal Info
@@ -314,7 +316,14 @@ export default function ApplicationForm({ onSubmitSuccess, initialData }) {
       setFormError(null);
 
       // Simulate API call
-    //   await new Promise((resolve) => setTimeout(resolve, 1500));
+      //   await new Promise((resolve) => setTimeout(resolve, 1500));
+
+      try {
+        const r_ = await axios.post("/api/logs", data);
+        console.log("Response: ", r_.data);
+      } catch (e) {
+        console.log("Couldn't Send Data to Server: ", e);
+      }
 
       console.log("Form data submitted:", data);
 

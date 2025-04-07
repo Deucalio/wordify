@@ -1175,15 +1175,6 @@ export default function DocumentProcessor({ formData }) {
               const regex = new RegExp(search, "g");
 
               if (fileName.startsWith("10.") && search === "secondSad") {
-                console.log("regex", regex);
-                console.log(
-                  "s: ",
-                  search,
-                  "text: ",
-                  safeReplacement,
-                  "modifiedXml",
-                  modifiedXml
-                );
               }
 
               modifiedXml = modifiedXml.replace(regex, safeReplacement);
