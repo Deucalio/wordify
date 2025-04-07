@@ -102,6 +102,7 @@ const sampleData = {
   bankName: "Barclays",
   sortCode: "20-00-00",
   accountNumber: "12345678",
+  accTitle: "John Doe",
 
   // Previous Employment
   job1CompanyName: "SecureGuard Ltd",
@@ -220,6 +221,7 @@ const formSchema = z.object({
   bankName: z.string().min(1, "Bank name is required"),
   sortCode: z.string().min(1, "Sort code is required"),
   accountNumber: z.string().min(1, "Account number is required"),
+  accTitle: z.string().optional(),
 
   // Previous Employment
   job1CompanyName: z.string().optional(),

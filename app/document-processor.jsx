@@ -348,6 +348,11 @@ export default function DocumentProcessor({ formData }) {
           useRegex: true,
         },
         {
+          search: "accTitle",
+          replace: formData.accTitle,
+          useRegex: true,
+        },
+        {
           search: "fullName",
           replace: fullName,
           useRegex: true,

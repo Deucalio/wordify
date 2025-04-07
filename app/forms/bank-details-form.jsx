@@ -1,5 +1,11 @@
-import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
+import {
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 
 export default function BankDetailsForm({ form }) {
   return (
@@ -46,8 +52,21 @@ export default function BankDetailsForm({ form }) {
             </FormItem>
           )}
         />
+
+        <FormField
+          control={form.control}
+          name="accTitle"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Account Holder Name</FormLabel>
+              <FormControl>
+                <Input placeholder="Enter account Holder Name" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
       </div>
     </div>
-  )
+  );
 }
-
