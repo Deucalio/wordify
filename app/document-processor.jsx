@@ -12,6 +12,7 @@ const documentFiles = [
   "files/2. Application Form.docx",
   "files/3. Telephone Screening.docx",
   "files/4. Competence Form.docx",
+  "files/5. Offer of Employment.docx",
   "files/6. Employment Contract.docx",
   "files/8. Induction Training.docx",
   "files/09. Screening progress sheet.docx",
@@ -22,7 +23,7 @@ const documentFiles = [
   "files/11. Employment reference - 1.docx",
   "files/11. Employment reference - 2.docx",
   "files/12. Uniform Issue record form.docx",
-  
+
   "files/13. Environmental training.docx",
   "files/14. WTR 48 hour opt out agreement.docx",
   "files/15. Medical Questionnaire.docx",
@@ -39,94 +40,86 @@ export default function DocumentProcessor({ formData }) {
   useEffect(() => {
     if (!formData) return;
 
-    // let formData = {
-    //     "firstName": "John",
-    //     "lastName": "Doe",
-    //     "dateOfBirth": "15/05/1985",
-    //     "jobTitle": "Security Officer",
-    //     "positionAppliedFor": "Senior Security Officer",
-    //     "proofOfAddress": "Utility Bill",
-    //     "shirtsSize": "L",
-    //     "trouserSize": "34",
-    //     "nationality": "British",
-    //     "dateOfEntryToUK": "01/01/2010",
-    //     "placeOfEntryToUK": "Heathrow",
-    //     "workPermit": "Yes",
-    //     "niNumber": "AB123456C",
-    //     "passportNumber": "123456789",
-    //     "siaLicenseSector": "Door Supervision",
-    //     "siaLicenceNumber": "SIA12345678",
-    //     "email": "john.doe@example.com",
-    //     "mobile": "07700900123",
-    //     "permanentAddress": "123 Main Street, London",
-    //     "permanentPostCode": "SW1A 1AA",
-    //     "permanentFrom": "01/06/2018",
-    //     "permanentTo": "Till Now",
-    //     "previousAddress": "45 Park Avenue, Manchester",
-    //     "previousPostCode": "M1 1AA",
-    //     "previousFrom": "15/03/2015",
-    //     "previousTo": "31/05/2018",
-    //     "nextOfKinRelationship": "Spouse",
-    //     "nextOfKinName": "Jane Doe",
-    //     "nextOfKinMobile": "07700900124",
-    //     "nextOfKinAddress": "123 Main Street, London",
-    //     "nextOfKinPostCode": "SW1A 1AA",
-    //     "drivingLicenseType": "Full UK",
-    //     "ownTransport": true,
-    //     "drivingLicenseNumber": "DOEXX123456AB9CD",
-    //     "uniName": "University of London",
-    //     "uniAddress": "Senate House, Malet Street, London",
-    //     "uniFrom": "01/09/2005",
-    //     "uniTo": "30/06/2008",
-    //     "uniGrades": "2:1 Honours",
-    //     "collegeName": "London College",
-    //     "collegeAddress": "10 College Road, London",
-    //     "collegeFrom": "01/09/2003",
-    //     "collegeTo": "30/06/2005",
-    //     "collegeGrades": "A, B, B",
-    //     "schoolClgFrom": "01/09/2001",
-    //     "schoolClgTo": "30/06/2003",
-    //     "attendedAs": "Student",
-    //     "commentsOrObservations": "None",
-    //     "signedAsName": "John Doe",
-    //     "schoolClgDate": "01/09/2001",
-    //     "schoolClgPosition": "Head Boy",
-    //     "emailDate1": "Wednesday, 22/01/2025 15:29",
-    //     "emailReply1": "I confirm that John Doe worked for our company from 2018 to 2020 as a Security Officer. He was reliable and professional.",
-    //     "emailDate2": "Mon 09/12/2024 11:11",
-    //     "emailReply2": "Reference confirmation for John Doe",
-    //     "emailRe": "Employment Reference Request",
-    //     "bankName": "Barclays",
-    //     "sortCode": "20-00-00",
-    //     "accountNumber": "12345678",
-    //     "job1CompanyName": "SecureGuard Ltd",
-    //     "job1Address": "1 Security House, Birmingham",
-    //     "job1PostCode": "B1 1AA",
-    //     "job1Tel": "0121 123 4567",
-    //     "job1Position": "Security Officer",
-    //     "job1Manager": "Sarah Johnson",
-    //     "job1From": "01/06/2020",
-    //     "job1To": "31/05/2023",
-    //     "job1ReasonForLeaving": "Career progression",
-    //     "job2CompanyName": "SafetyFirst Security",
-    //     "job2Address": "5 Protection Road, Manchester",
-    //     "job2PostCode": "M2 2BB",
-    //     "job2Tel": "0161 987 6543",
-    //     "job2Position": "Security Guard",
-    //     "job2Manager": "Michael Brown",
-    //     "job2From": "15/03/2018",
-    //     "job2To": "31/05/2020",
-    //     "job2ReasonForLeaving": "Relocation",
-    //     "interviewDate": "10/03/2024",
-    //     "telephoneScreeningDate": "05/03/2024",
-    //     "employmentContractDate": "20/03/2024",
-    //     "screeningProgressDate1": "12/03/2024",
-    //     "screeningProgressDate2": "18/03/2024",
-    //     "screeningPeriodFrom": "01/03/2024",
-    //     "screeningPeriodTo": "31/03/2024",
-    //     "environmentalTrainingDate": "02/04/2024",
-    //     "medicalQuestionnaireDate": "25/03/2024"
-    // }
+    formData = {
+      firstName: "INAM ",
+      lastName: "ULLAJ",
+      dateOfBirth: "16/04/1996",
+      jobTitle: "DOOR SUPERVISOR",
+      positionAppliedFor: "DOOR SUPERVISOR",
+      proofOfAddress: "20 CLARK STREET BRISTOL AVON BS5 0TA",
+      shirtsSize: "Large",
+      trouserSize: "Large",
+      nationality: "PAKISTANI",
+      dateOfEntryToUK: "08/09/2021",
+      workPermit: "FULL TIME ALLOWED",
+      niNumber: "NJ438109B",
+      passportNumber: "DS1750572",
+      siaLicenseSector: "DOOR SUPERVISOR",
+      siaLicenceNumber: "1016 2013 3148 6466",
+      email: "inamullah4724@gmail.com",
+      mobile: "07949012241",
+      permanentAddress: "20 CLARK STREET BRISTOL AVON BS5 0TA",
+      permanentPostCode: "BS5 0TA",
+      permanentFrom: "04/11/2023",
+      permanentTo: "TILL NOW",
+      previousAddress: "FLAT 87 TWINNELL HOUSE STAPLETON ROAD EASTON BS5 0AQ",
+      previousPostCode: "BS5 0AQ",
+      previousFrom: "08/09/2021",
+      previousTo: "03/11/2023",
+      nextOfKinRelationship: "FRIEND",
+      nextOfKinName: "ADNAN ANJUM",
+      nextOfKinMobile: "07443787012",
+      nextOfKinAddress: "20 CLARK STREET BRISTOL AVON BS5 0TA",
+      nextOfKinPostCode: "BS5 0TA",
+      drivingLicenseType: "N/A",
+      ownTransport: false,
+      drivingLicenseNumber: "N/A",
+      bankName: "HALIFAX",
+      sortCode: "11-00-98",
+      accountNumber: "14783563",
+      accTitle: "INAM ULLAH",
+      job1CompanyName: "TAURUS SECURITIES LIMITED",
+      job1Address: "115 EASTBOURNE MEWS, LONDON, UNITED KINGDOM, W2 6LQ",
+      job1PostCode: "W2 6LQ",
+      job1Tel: "0161 273 6600",
+      job1Position: "STEWARD",
+      job1Manager: "GILL LAMBERT",
+      job1From: "25/09/2021",
+      job1To: "31/12/2024",
+      job1ReasonForLeaving: "BETTER WORKIING HOURS",
+      job1Email: "info@taurus-group.co.uk",
+      job1EmailReplyDate: "Friday, 07/02/2025 14:23",
+      job1EmailReply:
+        "Thank you for reaching out regarding Inam Ullah reference. Inam Ullah joined our team on September 25th, 2021 and worked diligently until 31 December 2024. During his tenure, he consistently demonstrated a strong work ethic, exceptional dedication, and a keen ability to collaborate with colleagues.\n" +
+        "\n" +
+        "I appreciate your time and assistance in this matter.",
+      job2CompanyName: "MARDAN MEGA MART ",
+      job2Address: "NOWSHERA MARDAN RD, MARDAN, 23200 ",
+      job2PostCode: "23200 ",
+      job2Tel: "0312 5700009",
+      job2Position: "CASHIER",
+      job2Manager: "HASSAN SHABBIR",
+      job2From: "03/05/2019",
+      job2To: "02/09/2021",
+      job2ReasonForLeaving: "MOVED TO UK FOR FURTHER STUDIES",
+      job2Email: "megamart-mardan@gmail.com",
+      job2EmailReplyDate: "Tuesday, 18/02/2025 10:42",
+      job2EmailReply:
+        "I am writing to confirm the employment of Mr. INAM ULLAH as a Cashier at MARDAN MEGA MART , from 03 May 2019 to 02 September 2021.\n" +
+        "\n" +
+        "Inam was responsible for processing customer transactions, handling cash and credit card payments, and ensuring the accuracy of the register. He consistently demonstrated strong attention to detail, excellent customer service, and a reliable work ethic.\n" +
+        "\n" +
+        "I confirm the accuracy of this information. Please feel free to contact me if you need further details.",
+      interviewDate: "23/12/2024",
+      telephoneScreeningDate: "Tuesday, 31/12/2024 09:53",
+      telephoneScreeningDateTwo: "Tuesday, 31/12/2024 10:04",
+      employmentContractDate: "09/01/2025",
+      screeningProgressDate1: "18/02/2025",
+      screeningProgressDate2: "20/02/2025",
+      screeningPeriodFrom: "24/12/2024",
+      screeningPeriodTo: "24/03/2025",
+      environmentalTrainingDate: "15/01/2025",
+    };
 
     const fullName = `${formData.firstName} ${formData.lastName}`;
     const surName = formData.lastName;
@@ -294,52 +287,52 @@ export default function DocumentProcessor({ formData }) {
         },
         {
           search: "uniName",
-          replace: formData.uniName,
+          replace: formData.uniName ? formData.uniName : "",
           useRegex: true,
         },
         {
           search: "uniAdd",
-          replace: formData.uniAddress,
+          replace: formData.uniAddress ? formData.uniAddress : "",
           useRegex: true,
         },
         {
           search: "uniFrom",
-          replace: formData.uniFrom,
+          replace: formData.uniFrom ? formData.uniFrom : "",
           useRegex: true,
         },
         {
           search: "uniTo",
-          replace: formData.uniTo,
+          replace: formData.uniTo ? formData.uniTo : "",
           useRegex: true,
         },
         {
           search: "uniGrade",
-          replace: formData.uniGrades,
+          replace: formData.uniGrades ? formData.uniGrades : "",
           useRegex: true,
         },
         {
           search: "clgName",
-          replace: formData.collegeName,
+          replace: formData.collegeName ? formData.collegeName : "",
           useRegex: true,
         },
         {
           search: "clgAdd",
-          replace: formData.collegeAddress,
+          replace: formData.collegeAddress ? formData.collegeAddress : "",
           useRegex: true,
         },
         {
           search: "clgFrom",
-          replace: formData.collegeFrom,
+          replace: formData.collegeFrom ? formData.collegeFrom : "",
           useRegex: true,
         },
         {
           search: "clgTo",
-          replace: formData.collegeTo,
+          replace: formData.collegeTo ? formData.collegeTo : "",
           useRegex: true,
         },
         {
           search: "clgGrade",
-          replace: formData.collegeGrades,
+          replace: formData.collegeGrades ? formData.collegeGrades : "",
           useRegex: true,
         },
         {
@@ -475,7 +468,7 @@ export default function DocumentProcessor({ formData }) {
           useRegex: true,
         },
         {
-          search: "jobOneTell",
+          search: "1Tell",
           replace: formData.job1Tel,
           useRegex: true,
         },
@@ -521,9 +514,9 @@ export default function DocumentProcessor({ formData }) {
         },
         {
           search: "ddDate",
-          replace: formData.telephoneScreeningDate.split(" ")[1] ?
-          formData.telephoneScreeningDate.split(" ")[1] : "" 
-            ,
+          replace: formData.telephoneScreeningDate.split(" ")[1]
+            ? formData.telephoneScreeningDate.split(" ")[1]
+            : "",
           useRegex: true,
         },
       ],
@@ -537,6 +530,22 @@ export default function DocumentProcessor({ formData }) {
           search: "fullName",
           replace: fullName,
           useRegex: true,
+        },
+      ],
+      "5. Offer of Employment.docx": [
+        {
+          search: "fullName",
+          replace: fullName,
+          useRegex: true,
+        },
+        {
+          search: "empDate",
+          replace: formData.employmentContractDate,
+          useRegex: true,
+        },
+        {
+          search: "posApplied",
+          replace: formData.positionAppliedFor,
         },
       ],
       "6. Employment Contract.docx": [
@@ -776,7 +785,7 @@ export default function DocumentProcessor({ formData }) {
       "11 . email screening - 1.docx": [
         {
           search: "dateFormatted",
-          replace: formData.job1EmailReplyDate.split(" ").slice(1,).join(", "),
+          replace: formData.job1EmailReplyDate.split(" ").slice(1).join(", "),
           useRegex: true,
         },
         {
@@ -816,14 +825,17 @@ export default function DocumentProcessor({ formData }) {
         },
         {
           search: "dateSecond",
-          replace: formData.telephoneScreeningDate.split(" ").slice(1).join(", "),
+          replace: formData.telephoneScreeningDate
+            .split(" ")
+            .slice(1)
+            .join(", "),
           useRegex: true,
-        }
+        },
       ],
       "11 . email screening - 2.docx": [
         {
           search: "dateFormatted",
-          replace: formData.job2EmailReplyDate.split(" ").slice(1,).join(", "),
+          replace: formData.job2EmailReplyDate.split(" ").slice(1).join(", "),
           useRegex: true,
         },
         {
@@ -868,9 +880,12 @@ export default function DocumentProcessor({ formData }) {
         },
         {
           search: "dateSecond",
-          replace: formData.telephoneScreeningDateTwo.split(" ").slice(1).join(", "),
+          replace: formData.telephoneScreeningDateTwo
+            .split(" ")
+            .slice(1)
+            .join(", "),
           useRegex: true,
-        }
+        },
       ],
       "11. Employment reference - 1.docx": [
         {
@@ -920,10 +935,11 @@ export default function DocumentProcessor({ formData }) {
         },
         {
           search: "emailDate",
-          replace: formData.job1EmailReplyDate.split(" ")[1] ? 
-          formData.job1EmailReplyDate.split(" ")[1] : "",
+          replace: formData.job1EmailReplyDate.split(" ")[1]
+            ? formData.job1EmailReplyDate.split(" ")[1]
+            : "",
           useRegex: true,
-        }
+        },
       ],
       "11. Employment reference - 2.docx": [
         {
@@ -974,9 +990,10 @@ export default function DocumentProcessor({ formData }) {
         {
           search: "emailDate",
           replace: formData.job2EmailReplyDate.split(" ")[1]
-          ? formData.job2EmailReplyDate.split(" ")[1] : "",
+            ? formData.job2EmailReplyDate.split(" ")[1]
+            : "",
           useRegex: true,
-        }
+        },
       ],
       "12. Uniform Issue record form.docx": [
         {
@@ -1031,30 +1048,28 @@ export default function DocumentProcessor({ formData }) {
       ],
       "15. Medical Questionnaire.docx": [
         {
-            search: "jobTitle",
-            replace: formData.jobTitle,
-            useRegex: true
+          search: "jobTitle",
+          replace: formData.jobTitle,
+          useRegex: true,
         },
         {
-            search: "fullName",
-            replace: fullName,
-            useRegex: true
+          search: "fullName",
+          replace: fullName,
+          useRegex: true,
         },
         {
-            search: "dob",
-            replace: formData.dateOfBirth,
-            useRegex: true
+          search: "dob",
+          replace: formData.dateOfBirth,
+          useRegex: true,
         },
         {
-            search: "envDate",
-            replace: formData.environmentalTrainingDate,
-            useRegex: true
-        }
-      ]
+          search: "envDate",
+          replace: formData.environmentalTrainingDate,
+          useRegex: true,
+        },
+      ],
     };
 
-
-    
     // "files/2. Application Form.docx",
     // "files/3. Telephone Screening.docx",
     // "files/4. Competence Form.docx",
@@ -1162,9 +1177,8 @@ export default function DocumentProcessor({ formData }) {
 
         for (const { search, replace, useRegex } of replacements) {
           if (!search) continue;
-          console.log("FileName: ", fileName);
-          console.log("search: ", search, "||||", "replace: ", replace);
-          console.log("\n\n\n\n\n");
+          console.log("fileName: ", fileName, "||||| ", "search: ", search, "||||", "replace: ", replace);
+          console.log("\n\n");
 
           // Create a safe version of the replacement text with XML entities
           let safeReplacement = replace
