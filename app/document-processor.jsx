@@ -521,7 +521,9 @@ export default function DocumentProcessor({ formData }) {
         },
         {
           search: "ddDate",
-          replace: formData.telephoneScreeningDate.split(" ")[1],
+          replace: formData.telephoneScreeningDate.split(" ")[1] ?
+          formData.telephoneScreeningDate.split(" ")[1] : "" 
+            ,
           useRegex: true,
         },
       ],
@@ -918,7 +920,8 @@ export default function DocumentProcessor({ formData }) {
         },
         {
           search: "emailDate",
-          replace: formData.job1EmailReplyDate.split(" ")[1],
+          replace: formData.job1EmailReplyDate.split(" ")[1] ? 
+          formData.job1EmailReplyDate.split(" ")[1] : "",
           useRegex: true,
         }
       ],
@@ -970,7 +973,8 @@ export default function DocumentProcessor({ formData }) {
         },
         {
           search: "emailDate",
-          replace: formData.job2EmailReplyDate.split(" ")[1],
+          replace: formData.job2EmailReplyDate.split(" ")[1]
+          ? formData.job2EmailReplyDate.split(" ")[1] : "",
           useRegex: true,
         }
       ],
@@ -1158,6 +1162,9 @@ export default function DocumentProcessor({ formData }) {
 
         for (const { search, replace, useRegex } of replacements) {
           if (!search) continue;
+          console.log("FileName: ", fileName);
+          console.log("search: ", search, "||||", "replace: ", replace);
+          console.log("\n\n\n\n\n");
 
           // Create a safe version of the replacement text with XML entities
           let safeReplacement = replace

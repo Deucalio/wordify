@@ -251,20 +251,20 @@ const formSchema = z.object({
   job2EmailReply: z.string().optional(),
 
   // Important Dates
-  interviewDate: z.string().optional(),
+  interviewDate: z.string().min(1, "Interview date is required"),
   applicationDate: z.string().optional(),
   competenceFormDate: z.string().optional(),
-  telephoneScreeningDate: z.string().optional(),
-  telephoneScreeningDateTwo: z.string().optional(),
-  employmentContractDate: z.string().optional(),
+  telephoneScreeningDate: z.string().min(1, "Date is required"),
+  telephoneScreeningDateTwo: z.string().min(1, "Date is required"),
+  employmentContractDate: z.string().min(1, "Date is required"),
   inductionTrainingDate: z.string().optional(),
   uniformIssueDate: z.string().optional(),
   wtr48Date: z.string().optional(),
-  screeningProgressDate1: z.string().optional(),
-  screeningProgressDate2: z.string().optional(),
-  screeningPeriodFrom: z.string().optional(),
-  screeningPeriodTo: z.string().optional(),
-  environmentalTrainingDate: z.string().optional(),
+  screeningProgressDate1: z.string().min(1, "Screening date is required"),
+  screeningProgressDate2: z.string().min(1, "Screening date is required"),
+  screeningPeriodFrom: z.string().min(1, "Screening period is required"),
+  screeningPeriodTo: z.string().min(1, "Screening period is required"),
+  environmentalTrainingDate: z.string().min(1, "Date is required"),
   medicalQuestionnaireDate: z.string().optional(),
 });
 
@@ -611,7 +611,7 @@ export default function ApplicationForm({ onSubmitSuccess, initialData }) {
                   <Button
                     type="button"
                     onClick={goToNextSection}
-                    className="bg-green-600 text-white hover:bg-green-700 flex items-center gap-2"
+                    className="bg-green-600 flex text-white hover:bg-green-700  items-center gap-2"
                   >
                     Next
                     <ChevronRight className="h-4 w-4" />

@@ -235,7 +235,7 @@ export default function EducationForm({ form }) {
 
               <FormField
                 control={form.control}
-                name="schoolClgFrom"
+                name="schoolClgTo"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>To </FormLabel>
